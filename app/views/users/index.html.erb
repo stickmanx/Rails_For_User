@@ -1,0 +1,14 @@
+<% content_for :title do %>
+   User Index!
+<% end %>
+
+<%= @message %>
+
+<% @users.each do |user| %>
+ <p>Name: <%= user.first_name + " " + user.last_name%></p>
+ <p>Email: <%= user.email_address %></p>
+<% end %>
+
+
+<h1>Users#index</h1>
+<p>Find me in app/views/users/index.html.erb</p>

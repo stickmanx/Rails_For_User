@@ -2,12 +2,23 @@
    User Index!
 <% end %>
 
-<%= @message %>
-
 <% @users.each do |user| %>
- <p>Name: <%= user.first_name + " " + user.last_name%></p>
- <p>Email: <%= user.email_address %></p>
+	<p>Name: <%= user.first_name + " " + user.last_name%></p>
+	<p>Email: <%= user.email_address %></p>
+
+	<%= form_for user, :method => (:delete) do |f| %>
+		<% f.button :submit %>
+	<% end %>
+
+<form action='<%= "/users/"+user.id.to_s %>' method="post" data-remote="true">
+	<input type="hidden" name="_method" value="delete">
+	<input type="submit" value="delete">
+</form>
+
+
 <% end %>
+
+
 
 
 <h1>Users#index</h1>
